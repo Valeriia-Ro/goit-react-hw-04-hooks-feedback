@@ -11,7 +11,11 @@ export default function App() {
   const [bad, setBad] = useState(0);
 
   const varietyOfFeedback = (e) => {
-    switch (e) {
+    console.log(e);
+    console.log(e.target);
+    const { name } = e.target;
+    console.log(name);
+    switch (name) {
       case "good":
         setGood((state) => state + 1);
         break;
@@ -31,7 +35,7 @@ export default function App() {
   };
 
   const countPositiveFeedbackPercentage = () => {
-    return Math.round((good / countTotalFeedback()) * 100);
+    return Number(Math.round((good / countTotalFeedback()) * 100));
   };
 
   return (
